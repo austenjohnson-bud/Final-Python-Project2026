@@ -38,11 +38,19 @@ Action = ["Attack", "Items", "Run"]
 chosenAction = input("Select Action")
 if chosenAction == "Attack":
     input("What will you use?")
+    TorchHeadattack = ["FireBlast", "FirePunch", "FlareBomb"]
+    MrFrostattack = ["FrostBreath", "FrostPunch", "Icicle"]
+    LightningRodattack = ["Thundershock", "ThunderPunch", "Shockwave"]
+    VineMaster = ["Grapple Vine", "Life Drain", "Thorn Attack"]
+    if chosen == "TorchHead":
+
 elif chosenAction == "Items":
     Items = ["Potion", "Pow Up", "Def Up"]
     chosenItem = input("Select Items")
     if chosenItem == "Pow Up":
-        myCharacter.hp += 5
+        myCharacter.pow += 5
+    elif chosenItem == "Def Up":
+        myCharacter.defence += 5 
 elif chosenAction == "Run":
     print("You ran away")
 
