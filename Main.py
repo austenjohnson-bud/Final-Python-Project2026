@@ -26,6 +26,8 @@ Character4 = Character("Vine Master", 100, 25, 0, 'Grapple Vine', 'Life Drain', 
 possible_characters = [Character1, Character2, Character3, Character4]
 chosen = input("Select your character")
 myCharacter = Character1
+hp = 100
+ehp = 100
 for x in possible_characters:
     if chosen == x.name:
         myCharacter = x
@@ -37,13 +39,44 @@ print(chosen + " Encounters " + enemy)
 Action = ["Attack", "Items", "Run"]
 chosenAction = input("Select Action")
 if chosenAction == "Attack":
-    input("What will you use?")
+    print("What will you use?")
     TorchHeadattack = ["FireBlast", "FirePunch", "FlareBomb"]
     MrFrostattack = ["FrostBreath", "FrostPunch", "Icicle"]
     LightningRodattack = ["Thundershock", "ThunderPunch", "Shockwave"]
-    VineMaster = ["Grapple Vine", "Life Drain", "Thorn Attack"]
+    VineMasterattack = ["Grapple Vine", "Life Drain", "Thorn Attack"]
     if chosen == "TorchHead":
-
+        move = input("Select Torch Head's move")
+        if move == "FireBlast":
+            ehp -= 30
+        elif move == "FirePunch":
+            ehp -= 35
+        elif move == "FlareBomb":
+            ehp -= 28
+    elif chosen == "Mr. Frost":
+        move = input("Select Mr. Frost's move")
+        if move == "FrostBreath":
+            ehp -= 29
+        elif move == "FrostPunch":
+            ehp -= 35
+        elif move == "Icicle":
+            ehp -= 30
+    elif chosen == "Lightning Rod":
+        move = input("Select Lightning Rod's move")
+        if move == "Thundershock":
+            ehp -= 30
+        elif move == "ThunderPunch":
+            ehp -= 36
+        elif move == "Shockwave":
+            ehp -= 28
+    elif chosen == "Vine Master":
+        move = input("Select Vine Master's move")
+        if move == "Grapple Vine":
+            ehp -= 28
+        elif move == "Life Drain":
+            ehp -= 10
+            hp += 10
+        elif move == "Thorn Attack":
+            ehp -= 32
 elif chosenAction == "Items":
     Items = ["Potion", "Pow Up", "Def Up"]
     chosenItem = input("Select Items")
@@ -53,6 +86,9 @@ elif chosenAction == "Items":
         myCharacter.defence += 5 
 elif chosenAction == "Run":
     print("You ran away")
-
+if ehp <= 0:
+    print( chosen + "Wins")
+elif hp <= 0:
+    print( enemy + "Wins")
 
 
