@@ -1,4 +1,5 @@
 import json
+import random
 
 
 
@@ -28,6 +29,7 @@ chosen = input("Select your character")
 myCharacter = Character1
 hp = 100
 ehp = 100
+roll = random.randint(1, 9)
 for x in possible_characters:
     if chosen == x.name:
         myCharacter = x
@@ -48,42 +50,500 @@ if chosenAction == "Attack":
         move = input("Select Torch Head's move")
         if move == "FireBlast":
             ehp -= 30
+            print(enemy + "attack")
+            if roll == 1-3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4-6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7-9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1-3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4-6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7-9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1-3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4-6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7-9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1-3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4-6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7-9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "FirePunch":
             ehp -= 35
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "FlareBomb":
             ehp -= 28
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
     elif chosen == "Mr. Frost":
         move = input("Select Mr. Frost's move")
         if move == "FrostBreath":
             ehp -= 29
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "FrostPunch":
             ehp -= 35
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "Icicle":
             ehp -= 30
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
     elif chosen == "Lightning Rod":
         move = input("Select Lightning Rod's move")
         if move == "Thundershock":
             ehp -= 30
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "ThunderPunch":
             ehp -= 36
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "Shockwave":
             ehp -= 28
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
     elif chosen == "Vine Master":
         move = input("Select Vine Master's move")
         if move == "Grapple Vine":
             ehp -= 28
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "Life Drain":
             ehp -= 10
             hp += 10
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
         elif move == "Thorn Attack":
             ehp -= 32
+            print(enemy + "attack")
+            if roll == 1 - 3 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostBreath")
+                hp -= 29
+            elif roll == 4 - 6 and enemy == "Mr.Frost":
+                print(enemy + "Used FrostPunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Mr.Frost":
+                print(enemy + "Used Icicle")
+                hp -= 30
+            elif roll == 1 - 3 and enemy == "Torch Head":
+                print(enemy + "Used FireBlast")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Torch Head":
+                print(enemy + "Used FirePunch")
+                hp -= 35
+            elif roll == 7 - 9 and enemy == "Torch Head":
+                print(enemy + "Used FlareBomb")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Lightning Rod":
+                print(enemy + "Used Thundershock")
+                hp -= 30
+            elif roll == 4 - 6 and enemy == "Lightning Rod":
+                print(enemy + "Used ThunderPunch")
+                hp -= 36
+            elif roll == 7 - 9 and enemy == "Lightning Rod":
+                print(enemy + "Used Shockwave")
+                hp -= 28
+            elif roll == 1 - 3 and enemy == "Vine Master":
+                print(enemy + "Used Grapple Vine")
+                hp -= 28
+            elif roll == 4 - 6 and enemy == "Vine Master":
+                print(enemy + "Used Life Drain")
+                hp -= 10
+                ehp += 10
+            elif roll == 7 - 9 and enemy == "Vine Master":
+                print(enemy + "Used Thorn Attack")
+                hp -= 32
 elif chosenAction == "Items":
     Items = ["Potion", "Pow Up", "Def Up"]
     chosenItem = input("Select Items")
     if chosenItem == "Pow Up":
         myCharacter.pow += 5
     elif chosenItem == "Def Up":
-        myCharacter.defence += 5 
+        myCharacter.defence += 5
+    elif chosenItem == "Potion":
+        hp += 30
 elif chosenAction == "Run":
     print("You ran away")
 if ehp <= 0:
