@@ -2,9 +2,16 @@ import json
 import random
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 
+# WINDOW SETUP
+root = tk.Tk()
+root.title("Battle")
 
-
+# LOAD BACKGROUND
+background = Image.open(r"")
+background = background.resize((800, 500))
+bg_image = ImageTk.PhotoImage(background)
 
 class Character:
     def __init__(self, name, hp, pow, defence, move1, move2, move3, move1pow, move2pow, move3pow):
