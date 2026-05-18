@@ -9,9 +9,43 @@ root = tk.Tk()
 root.title("Battle")
 
 # LOAD BACKGROUND
-background = Image.open(r"")
+background = Image.open(r"RPG battle ground.jpeg")
 background = background.resize((800, 500))
 bg_image = ImageTk.PhotoImage(background)
+
+# Create a container for the objects onscreen
+canvas = tk.Canvas(root, width=800, height=500)
+canvas.pack()
+canvas.create_image(0, 0, anchor="nw", image=bg_image)
+
+# GAME VARIABLES
+player_name = ""
+enemy_name = ""
+
+player_max_hp = 100
+enemy_max_hp = 100
+
+player_current_hp = 100
+enemy_current_hp = 100
+
+# LOAD SPRITES
+player_img = Image.open(r"C:\Users\zajohns1\PycharmProjects\Final-Python-Project2026\Character2.avif").resize((150,150))
+player_photo = ImageTk.PhotoImage(player_img)
+canvas.create_image(200, 350, image=player_photo)
+
+enemy_img = Image.open(r"C:\Users\zajohns1\PycharmProjects\Final-Python-Project2026\Character4.jpg").resize((150,150))
+enemy_photo = ImageTk.PhotoImage(enemy_img)
+canvas.create_image(600, 200, image=enemy_photo)
+
+# HP BARS
+player_hp_bar = ttk.Progressbar(root, length=200, maximum=player_max_hp)
+player_hp_bar.place(x=100, y=420)
+player_hp_bar["value"] = player_current_hp
+
+enemy_hp_bar = ttk.Progressbar(root, length=200, maximum=enemy_max_hp)
+enemy_hp_bar.place(x=500, y=100)
+enemy_hp_bar["value"] = enemy_current_hp
+
 
 class Character:
     def __init__(self, name, hp, pow, defence, move1, move2, move3, move1pow, move2pow, move3pow):
@@ -39,6 +73,15 @@ chosen = input("Select your character")
 myCharacter = Character1
 hp = 100
 ehp = 100
+
+
+# ATTACK FUNCTION
+def attack():
+    global enemy_current_hp
+    global player_current_hp
+
+
+
 roll = random.randint(1, 9)
 for x in possible_characters:
     if chosen == x.name:
@@ -60,25 +103,37 @@ while True:
         if chosen == "Torch Head":
 
             if move == "FireBlast":
+                FireBlastdamage = 30
+                enemy_current_hp -= FireBlastdamage
                 ehp -= 30
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -100,25 +155,37 @@ while True:
                     print(enemy + "Used Thorn Attack")
                     hp -= 32
             elif move == "FirePunch":
+                FirePunchdamage = 35
+                enemy_current_hp -= FirePunchdamage
                 ehp -= 35
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -140,25 +207,37 @@ while True:
                     print(enemy + "Used Thorn Attack")
                     hp -= 32
             elif move == "FlareBomb":
+                FlareBombdamage = 28
+                enemy_current_hp -= FlareBombdamage
                 ehp -= 28
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -182,25 +261,37 @@ while True:
         elif chosen == "Mr. Frost":
             move = input("Select Mr. Frost's move")
             if move == "FrostBreath":
+                FrostBreathdamage = 29
+                enemy_current_hp -= FrostBreathdamage
                 ehp -= 29
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -222,25 +313,37 @@ while True:
                     print(enemy + "Used Thorn Attack")
                     hp -= 32
             elif move == "FrostPunch":
+                FrostPunchdamage = 35
+                enemy_current_hp -= FrostPunchdamage
                 ehp -= 35
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -266,21 +369,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -308,21 +421,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -348,21 +471,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -388,21 +521,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -430,21 +573,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -471,21 +624,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
@@ -511,21 +674,31 @@ while True:
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostBreath")
+                    FrostBreathdamage = 29
+                    player_current_hp -= FrostBreathdamage
                     hp -= 29
                 elif roll >= 4 and roll <= 6 and enemy == "Mr.Frost":
                     print(enemy + "Used FrostPunch")
+                    FrostPunchdamage = 35
+                    player_current_hp -= FrostPunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
+                    FireBlastdamage = 30
+                    player_current_hp -= FireBlastdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Torch Head":
                     print(enemy + "Used FirePunch")
+                    FirePunchdamage = 35
+                    player_current_hp -= FirePunchdamage
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Torch Head":
                     print(enemy + "Used FlareBomb")
+                    FlareBombdamage = 28
+                    player_current_hp -= FlareBombdamage
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
