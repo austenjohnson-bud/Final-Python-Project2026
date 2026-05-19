@@ -4,20 +4,6 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 
-# WINDOW SETUP
-root = tk.Tk()
-root.title("Battle")
-
-# LOAD BACKGROUND
-background = Image.open(r"RPG battle ground.jpeg")
-background = background.resize((800, 500))
-bg_image = ImageTk.PhotoImage(background)
-
-# Create a container for the objects onscreen
-canvas = tk.Canvas(root, width=800, height=500)
-canvas.pack()
-canvas.create_image(0, 0, anchor="nw", image=bg_image)
-
 # GAME VARIABLES
 player_name = ""
 enemy_name = ""
@@ -28,23 +14,7 @@ enemy_max_hp = 100
 player_current_hp = 100
 enemy_current_hp = 100
 
-# LOAD SPRITES
-player_img = Image.open(r"C:\Users\zajohns1\PycharmProjects\Final-Python-Project2026\Character2.avif").resize((150,150))
-player_photo = ImageTk.PhotoImage(player_img)
-canvas.create_image(200, 350, image=player_photo)
 
-enemy_img = Image.open(r"C:\Users\zajohns1\PycharmProjects\Final-Python-Project2026\Character4.jpg").resize((150,150))
-enemy_photo = ImageTk.PhotoImage(enemy_img)
-canvas.create_image(600, 200, image=enemy_photo)
-
-# HP BARS
-player_hp_bar = ttk.Progressbar(root, length=200, maximum=player_max_hp)
-player_hp_bar.place(x=100, y=420)
-player_hp_bar["value"] = player_current_hp
-
-enemy_hp_bar = ttk.Progressbar(root, length=200, maximum=enemy_max_hp)
-enemy_hp_bar.place(x=500, y=100)
-enemy_hp_bar["value"] = enemy_current_hp
 
 
 class Character:
@@ -94,6 +64,9 @@ print(chosen + " Encounters " + enemy)
 while True:
     Action = ["Attack", "Items", "Run"]
     chosenAction = input("Select Action")
+
+
+
     if chosenAction == "Attack":
         move = input("What will you use?")
         TorchHeadattack = ["FireBlast", "FirePunch", "FlareBomb"]
@@ -119,6 +92,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -137,22 +112,35 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "FirePunch":
                 FirePunchdamage = 35
@@ -171,6 +159,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -189,22 +179,35 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "FlareBomb":
                 FlareBombdamage = 28
@@ -223,6 +226,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -241,22 +246,35 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
         elif chosen == "Mr. Frost":
             move = input("Select Mr. Frost's move")
@@ -277,6 +295,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -295,22 +315,35 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "FrostPunch":
                 FrostPunchdamage = 35
@@ -329,6 +362,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -347,24 +382,39 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "Icicle":
+                Icicledamage = 30
+                enemy_current_hp -= Icicledamage
                 ehp -= 30
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
@@ -379,6 +429,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -397,26 +449,41 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
         elif chosen == "Lightning Rod":
             move = input("Select Lightning Rod's move")
             if move == "Thundershock":
+                Thundershockdamage = 30
+                enemy_current_hp -= Thundershockdamage
                 ehp -= 30
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
@@ -431,6 +498,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -449,24 +518,39 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "ThunderPunch":
+                ThunderPunchdamage = 36
+                enemy_current_hp -= ThunderPunchdamage
                 ehp -= 36
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
@@ -481,6 +565,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -499,24 +585,39 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "Shockwave":
+                Shockwavedamage = 28
+                enemy_current_hp -= Shockwavedamage
                 ehp -= 28
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
@@ -531,6 +632,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -549,26 +652,41 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
         elif chosen == "Vine Master":
             move = input("Select Vine Master's move")
             if move == "Grapple Vine":
+                GrappleVinedamage = 28
+                enemy_current_hp -= GrappleVinedamage
                 ehp -= 28
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
@@ -583,6 +701,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -601,24 +721,40 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "Life Drain":
+                LifeDraindamage = 10
+                enemy_current_hp -= LifeDraindamage
+                player_current_hp += LifeDraindamage
                 ehp -= 10
                 hp += 10
                 print(enemy + "attack")
@@ -634,6 +770,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -652,24 +790,39 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
             elif move == "Thorn Attack":
+                ThornAttackdamage = 32
+                enemy_current_hp -= ThornAttackdamage
                 ehp -= 32
                 print(enemy + "attack")
                 if roll >= 1 and roll <= 3 and enemy == "Mr.Frost":
@@ -684,6 +837,8 @@ while True:
                     hp -= 35
                 elif roll >= 7 and roll <= 9 and enemy == "Mr.Frost":
                     print(enemy + "Used Icicle")
+                    Icicledamage = 30
+                    player_current_hp -= Icicledamage
                     hp -= 30
                 elif roll >= 1 and roll <= 3 and enemy == "Torch Head":
                     print(enemy + "Used FireBlast")
@@ -702,22 +857,35 @@ while True:
                     hp -= 28
                 elif roll >= 1 and roll <=3 and enemy == "Lightning Rod":
                     print(enemy + "Used Thundershock")
+                    Thundershockdamage = 30
+                    player_current_hp -= Thundershockdamage
                     hp -= 30
                 elif roll >= 4 and roll <= 6 and enemy == "Lightning Rod":
                     print(enemy + "Used ThunderPunch")
+                    ThunderPunchdamage = 36
+                    player_current_hp -= ThunderPunchdamage
                     hp -= 36
                 elif roll >= 7 and roll <= 9 and enemy == "Lightning Rod":
                     print(enemy + "Used Shockwave")
+                    Shockwavedamage = 28
+                    player_current_hp -= Shockwavedamage
                     hp -= 28
                 elif roll >= 1 and roll <= 3 and enemy == "Vine Master":
                     print(enemy + "Used Grapple Vine")
+                    GrappleVinedamage = 28
+                    player_current_hp -= GrappleVinedamage
                     hp -= 28
                 elif roll >= 4 and roll <= 6 and enemy == "Vine Master":
                     print(enemy + "Used Life Drain")
+                    LifeDraindamage = 10
+                    player_current_hp -= LifeDraindamage
+                    enemy_current_hp += LifeDraindamage
                     hp -= 10
                     ehp += 10
                 elif roll >= 7 and roll <= 9 and enemy == "Vine Master":
                     print(enemy + "Used Thorn Attack")
+                    ThornAttackdamage = 32
+                    player_current_hp -= ThornAttackdamage
                     hp -= 32
     elif chosenAction == "Items":
         Items = ["Potion", "Pow Up", "Def Up"]
@@ -734,5 +902,48 @@ while True:
         print( chosen + "Wins")
     elif hp <= 0:
         print( enemy + "Wins")
+
+ # WINDOW SETUP
+root = tk.Tk()
+root.title("Battle")
+
+# LOAD BACKGROUND
+background = Image.open(r"RPG battle ground.jpeg")
+background = background.resize((800, 500))
+bg_image = ImageTk.PhotoImage(background)
+
+# Create a container for the objects onscreen
+canvas = tk.Canvas(root, width=800, height=500)
+canvas.pack()
+canvas.create_image(0, 0, anchor="nw", image=bg_image)
+
+# LOAD SPRITES
+player_img = Image.open(r"C:\Users\zajohns1\PycharmProjects\Final-Python-Project2026\Character2.avif").resize(
+    (150, 150))
+player_photo = ImageTk.PhotoImage(player_img)
+canvas.create_image(200, 350, image=player_photo)
+
+enemy_img = Image.open(r"C:\Users\zajohns1\PycharmProjects\Final-Python-Project2026\Character4.jpg").resize(
+    (150, 150))
+enemy_photo = ImageTk.PhotoImage(enemy_img)
+canvas.create_image(600, 200, image=enemy_photo)
+
+# HP BARS
+player_hp_bar = ttk.Progressbar(root, length=200, maximum=player_max_hp)
+player_hp_bar.place(x=100, y=420)
+player_hp_bar["value"] = player_current_hp
+
+enemy_hp_bar = ttk.Progressbar(root, length=200, maximum=enemy_max_hp)
+enemy_hp_bar.place(x=500, y=100)
+enemy_hp_bar["value"] = enemy_current_hp
+root.mainloop()
+
+# BUTTONS
+Attack_btn = tk.Button(root, text="Attack", command=attack)
+Attack_btn.place(x=100, y=160)
+
+# START PROGRAM
+
+
 
 
